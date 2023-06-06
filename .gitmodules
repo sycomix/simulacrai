@@ -1,0 +1,8 @@
+[submodule "mlc-llm"]
+	path = apps/simulacrai_mlc/libs/mlc-llm
+	url = https://github.com/mlc-ai/mlc-llm/tree/main
+    branch = main
+[submodule "tvm-unity"]
+	path = apps/simulacrai_mlc/libs/tvm-unity
+	url = https://github.com/mlc-ai/relax/tree/mlc
+    branch = mlc

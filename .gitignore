@@ -1,0 +1,7 @@
+target/
+node_modules/
+models/
+# Ignore all files in the proto folder other than  *.proto files
+**/proto/**
+!**/proto/**/
+!**/proto/**/*.proto

@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "apps/simulacrai_service",    
+    "apps/simulacrai_mlc",    
+]
+exclude = []

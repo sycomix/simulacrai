@@ -1,0 +1,63 @@
+// Generate GRPC service
+syntax = "proto3";
+
+package simulacrai;
+
+import "google/protobuf/any.proto";
+
+// The NPC AI service definition
+service NpcAIService {
+  // Sends the NPC config and receives the NPC
+  rpc CreateNpc(NpcConfig) returns (Npc) {}
+
+  // Sends the game context and receives the NPC action
+  rpc DetermineNpcAction(NpcObservation) returns (NpcAction) {}
+
+  // Sends the text input and receives the text output for dialog
+  rpc GenerateNpcDialog(TextInput) returns (TextOutput) {}
+
+}
+
+message Npc {
+  // Unique ID for the NPC
+  string id = 1;
+
+  // The NPC data
+  map<string, google.protobuf.Any> data = 2;
+}
+
+message NpcConfig {
+  map<string, google.protobuf.Any> config = 1;
+}
+
+
+// The game context with the necessary information about the current game state
+message NpcObservation {
+  // Details about the game state as a series of key-value pairs
+  // These could include details about the player, the NPC, the environment, etc.
+  map<string, google.protobuf.Any> state = 1;
+}
+
+// The action that the NPC will take
+message NpcAction {
+  // The type of action the NPC will take
+  string action_type = 1;
+
+  // The parameters for the action
+  map<string, google.protobuf.Any> parameters = 2;
+}
+
+// The text input for the NPC dialog
+message TextInput {
+  // The current dialog context
+  string dialog_context = 1;
+
+  // The text input from the player
+  string player_input = 2;
+}
+
+// The text output for the NPC dialog
+message TextOutput {
+  // The text output from the NPC
+  string npc_output = 1;
+}
